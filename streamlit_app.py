@@ -1,9 +1,17 @@
 import streamlit as st
-import time
-with st.sidebar:
-    with st.echo():
-        st.write("This code will be printed to the sidebar.")
 
-    with st.spinner("Loading..."):
-        time.sleep(5)
-    st.success("Done!")
+placeholder = st.empty()
+
+# Replace the placeholder with some text:
+placeholder.text("Hello")
+
+# Replace the text with a chart:
+placeholder.line_chart({"data": [1, 5, 2, 6]})
+
+# Replace the chart with several elements:
+with placeholder.container():
+    st.write("This is one element")
+    st.write("This is another")
+
+# Clear all those elements:
+placeholder.empty()
